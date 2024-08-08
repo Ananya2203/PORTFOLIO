@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8" />
+    <title>Portfolio Website HTML CSS</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        /* General Reset and Body Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            color: #4a4a4a; /* Pastel Gray Text */
+            background-color: #f0f4f8; /* Pastel Light Blue Background */
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* Navigation Menu */
+        nav {
+            position: fixed;
+            width: 100%;
+            background: #c5e1a5; /* Pastel Green */
+            color: #4a4a4a; /* Pastel Gray Text */
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        nav .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        .navbar .logo a {
+            color: #4a4a4a; /* Pastel Gray */
+            font-size: 24px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .navbar .logo img {
+            height: 40px; /* Adjust logo size */
+            margin-right: 10px;
+        }
+
+        .menu {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .menu li {
+            margin: 0 15px;
+        }
+
+        .menu a {
+            color: #4a4a4a; /* Pastel Gray Text */
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        .menu a:hover {
+            color: #9fa8da; /* Pastel Blue */
+        }
+
+        .menu-btn {
+            display: none;
+        }
+
+        /* Home Section */
+        .home {
+            padding: 60px 20px;
+            background: #fce4ec; /* Pastel Pink */
+            color: #4a4a4a; /* Pastel Gray Text */
+            text-align: center;
+        }
+
+        .home-content img {
+            border-radius: 50%;
+            width: 250px; /* Increased image size */
+            height: 250px;
+            margin-top: 20px;
+            border: 5px solid #d1c4e9; /* Pastel Purple */
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .home-content img:hover {
+            transform: scale(1.1);
+            border-color: #fce4ec; /* Pastel Pink */
+        }
+
+        /* About Section */
+        .about, .skills, .expertise, .contact {
+            padding: 60px 20px;
+        }
+
+        .about .content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about .left img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        .button button {
+            background: #a5d6a7; /* Pastel Green */
+            color: #4a4a4a; /* Pastel Gray Text */
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .button button:hover {
+            background: #4a4a4a; /* Pastel Gray */
+            color: #f0f4f8; /* Pastel Light Blue */
+            transform: scale(1.1);
+        }
+
+        /* Skills Section */
+        .skills .boxes {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .skills .box {
+            width: 22%;
+            margin: 10px;
+            text-align: center;
+            background: #ffffff; /* White Background */
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .skills .box .topic {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .skills .box .per {
+            font-size: 24px;
+            font-weight: bold;
+            color: #81c784; /* Pastel Green */
+        }
+
+        /* Contact Section */
+        .contact {
+            background: #e1bee7; /* Pastel Purple */
+            color: #4a4a4a; /* Pastel Gray Text */
+            text-align: center;
+        }
+
+        .contact .title, .contact .topic {
+            color: #9fa8da; /* Pastel Blue */
+        }
+
+        .contact-info p {
+            margin: 10px 0;
+        }
+
+        .contact-info a {
+            color: #9fa8da; /* Pastel Blue */
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: #d1c4e9; /* Pastel Purple */
+            color: #4a4a4a; /* Pastel Gray Text */
+            padding: 10px;
+            text-align: center;
+        }
+
+        footer a {
+            color: #9fa8da; /* Pastel Blue */
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Scroll to Top Button */
+        .scroll-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #4a4a4a; /* Pastel Gray */
+            color: #f0f4f8; /* Pastel Light Blue */
+            padding: 10px;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .scroll-button:hover {
+            background: #9fa8da; /* Pastel Blue */
+            transform: scale(1.1);
+        }
+
+        .scroll-button a {
+            color: inherit;
+            font-size: 20px;
+            text-decoration: none;
+        }
+
+        .scroll-button i {
+            vertical-align: middle;
+        }
+
+        /* Animated Cat */
+        .animated-cat {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: #ffebee; /* Light Pink Background */
+            color: #4a4a4a; /* Pastel Gray Text */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+
+        .animated-cat img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .animated-cat.hidden {
+            opacity: 0;
+        }
+
+        .animated-cat p {
+            margin: 0;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+<body>
+    <!-- Move to up button -->
+    <div class="scroll-button">
+      <a href="#home"><i class="fas fa-arrow-up"></i></a>
+  </div>
+
+  <!-- Animated Cat -->
+  <div class="animated-cat" id="animated-cat">
+      <img src= "C:\Users\anany\shirleyall\cat.png" alt="Animated Cat" />
+      <p>Hello, welcome to my profile!</p>
+  </div>
+
+  <!-- Navigation Menu -->
+  <nav>
+      <div class="navbar">
+          <div class="logo">
+              <a href="#">
+                  <img src="C:\github\Images\code.jpeg" alt="Logo" /> <!-- Add logo image -->
+                  Ananya
+              </a>
+          </div>
+          <ul class="menu">
+              <li><a href="#home">Home</a></li>
+              <li><a href="#about me">About</a></li>
+              <li><a href="#skills">Skills</a></li>
+              <li><a href="#expertise">expertise</a></li>
+              <li><a href="#contact">Contact</a></li>
+              <li><a href="education.html">Education</a></li>
+          </ul>
+      </div>
+  </nav>
+
+  <title>Home Section</title>
+  <style>
+      /* General styles for the home section */
+      .home {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 100vh;
+          background-color: #f0f0f0; /* Light background color */
+          overflow: hidden; /* To hide any overflow from animations */
+          position: relative;
+          text-align: center;
+      }
+
+      .home-content {
+          position: relative;
+      }
+
+      .text {
+          position: relative;
+          height: 100px; /* Adjust height based on content */
+      }
+
+      .text div {
+          position: absolute;
+          width: 100%;
+          opacity: 0;
+      }
+
+      .text-one {
+          animation: slideFromLeft 6s ease-in-out infinite;
+          animation-delay: 0s;
+      }
+
+      .text-two {
+          animation: slideFromRight 6s ease-in-out infinite;
+          animation-delay: 3s; /* Start after text-one */
+      }
+
+      .text-three,
+      .text-four {
+          position: relative;
+          opacity: 0;
+          animation: fadeIn 1s ease-in-out forwards;
+          animation-delay: 5s; /* Show after text-two */
+      }
+
+      @keyframes slideFromLeft {
+          0% {
+              opacity: 0;
+              transform: translateX(-100%);
+          }
+          25% {
+              opacity: 1;
+              transform: translateX(0);
+          }
+          50% {
+              opacity: 1;
+              transform: translateX(0);
+          }
+          75% {
+              opacity: 0;
+              transform: translateX(100%);
+          }
+          100% {
+              opacity: 0;
+              transform: translateX(100%);
+          }
+      }
+
+      @keyframes slideFromRight {
+          0% {
+              opacity: 0;
+              transform: translateX(100%);
+          }
+          25% {
+              opacity: 1;
+              transform: translateX(0);
+          }
+          50% {
+              opacity: 1;
+              transform: translateX(0);
+          }
+          75% {
+              opacity: 0;
+              transform: translateX(-100%);
+          }
+          100% {
+              opacity: 0;
+              transform: translateX(-100%);
+          }
+      }
+
+      @keyframes fadeIn {
+          from {
+              opacity: 0;
+          }
+          to {
+              opacity: 1;
+          }
+      }
+  </style>
+
+<body>
+  <!-- Home Section Start -->
+  <section class="home" id="home">
+      <div class="home-content">
+          <div class="text">
+              <div class="text-one">Hello,</div>
+              <div class="text-two">I'm Ananya Ghorpade</div>
+          </div>
+      </div>
+  </section>
+     <!-- About Section Start -->
+    <section class="about" id="about">
+      <div class="content">
+        <div class="title"><span>About Me</span></div>
+        <div class="about-details">
+          <div class="left">
+            <img src="C:\github\Images\background.jpg" alt="" />
+          </div>
+          <div class="right">
+            <div class="topic">Full Stack Developer</div>
+            <p>
+              As a Full Stack Developer, I am proficient in both front-end and back-end technologies, enabling me to build and maintain complete web applications. My skill set includes Front-End Development: Expertise in HTML, CSS, and JavaScript, with experience in modern frameworks and libraries such as React, Angular, or Vue.js to create responsive and interactive user interfaces. Back-End Development: Strong knowledge of server-side programming languages including Python, Ruby, Java, Node.js, or PHP. Experienced in working with databases such as MySQL, PostgreSQL, or MongoDB, and developing APIs for seamless data exchange.
+          </p>
+          <div class="button">
+            <a href="C:\Users\anany\Downloads\RESUMEPIC.pdf" download><button>Download CV</button></a>
+        </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="Education"id="Education">
+        <div class="content">
+          <div class="title"><span>Education</span></div>
+          <div class="education-details">
+            <div class="right">
+              <div class="topic">Educational Qualification</div>
+            <div class="left">
+              <p>
+                Bachelors of Information Technology (IT)
+
+                A Bachelor of Information Technology is a degree program that prepares students for careers in information technology. The degree develops targeted skills in network design, network administration, and programming, and emphasizes IT theory and its practical applications, along with cybersecurity and information security concepts      </p>
+              </div>
+    </section>
+
+    <!-- My Skill Section Start -->
+    <!-- Section Tag and Other Div will same where we need to put same CSS -->
+    <section class="skills" id="skills">
+      <div class="content">
+        <div class="title"><span>My Skills</span></div>
+        <div class="skills-details">
+          <div class="text">
+            <div class="topic">Skills Reflect Our Knowledge</div>
+            <p>I possess a comprehensive skill set across both front-end and back-end technologies. On the front-end, I excel in HTML5, CSS3, and JavaScript (ES6+), with extensive experience in modern frameworks and libraries such as React, Angular, and Vue.js, enabling me to create dynamic and responsive user interfaces.</p>
+            <div class="experience">
+                <div class="text">Fresher</div>
+                <div class="text">
+                     <br />
+      
+                </div>
+            </div>
+        </div>
+          <div class="boxes">
+            <div class="box">
+              <div class="topic">HTML</div>
+              <div class="per">90%</div>
+            </div>
+            <div class="box">
+              <div class="topic">CSS</div>
+              <div class="per">80%</div>
+            </div>
+            <div class="box">
+              <div class="topic">JavScript</div>
+              <div class="per">70%</div>
+            </div>
+            <div class="box">
+              <div class="topic">SQL</div>
+              <div class="per">60%</div>
+            </div>
+            <div class="box">
+              <div class="topic">PHP</div>
+              <div class="per">60%</div>
+            </div>
+            <div class="box">
+              <div class="topic">NETWORKING</div>
+              <div class="per">60%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- My Services Section Start -->
+    <section class="services" id="services">
+      <div class="content">
+        <div class="title"><span>expertise</span></div>
+        <div class="boxes">
+          <div class="box">
+            <div class="icon">
+              <i class="fas fa-desktop"></i>
+            </div>
+            <div class="topic">Web Devlopment</div>
+            <p>Design attractive and interactive web pages using the latest technology</p>
+          </div>
+          <div class="box">
+            <div class="icon">
+              <i class="fas fa-paint-brush"></i>
+            </div>
+            <div class="topic">Graphic Design</div>
+            <p>Creating various graphics, templates, brochures for company retailers</p>
+          </div>
+          <div class="box">
+            <div class="icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <div class="topic">Editing</div>
+            <p></p>Photo and video editing using various professional editors</p>
+          </div>
+          <div class="box">
+            <div class="icon">
+              <i class="fab fa-android"></i>
+            </div>
+            <div class="topic">Figma / Canva</div>
+            <p></p>
+          </div>
+          <div class="box">
+            <div class="icon">
+              <i class="fas fa-camera-retro"></i>
+            </div>
+            <div class="topic">Photography</div>
+            <p>Capturing breathtaking scenic beauty</p>
+          </div>
+          <div class="box">
+            <div class="icon">
+              <i class="fas fa-tablet-alt"></i>
+            </div>
+            <div class="topic">Apps Devlopment</div>
+            <p></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <title>Projects</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .project {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transform: translateX(-100%);
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .project.show {
+            transform: translateX(0);
+        }
+
+        .project h2 {
+            margin-top: 0;
+            font-size: 1.8em;
+            color: #007BFF;
+        }
+
+        .project p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin: 10px 0;
+        }
+
+        .project a {
+            color: #007BFF;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .project a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 15px 0;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        @media (max-width: 600px) {
+            .project {
+                padding: 15px;
+            }
+
+            .project h2 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+
+<body>
+    <header>
+        <h1>My Projects</h1>
+    </header>
+    <main>
+        <section class="project" id="project1">
+            <h2>College Feedback System</h2>
+            <p>. The College Feedback System is a management information system for education establishments to manage the student data. An Online Student Feedback System is an  automatic feedback generation system that provides the proper feedback to the teachers as per the categories like always, poor, usually, very often, sometimes.</p>
+            <a href="https://example.com/project1" target="_blank">View Project</a>
+        </section>
+        <section class="project" id="project2">
+            <h2>IOT PROJECT</h2>
+           <p>IoT is a network of electronically interconnected physical items. Software, embedded electronics, sensors, and a host of other things are included in the list of physical objects. IoT is the process of gathering and sharing data among a network of linked devices to improve decision-making. This cutting-edge technology is always evolving and expanding. </p>
+            <a href="https://example.com/project2" target="_blank">View Project</a>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 My Projects Page</p>
+    </footer>
+
+    <script>
+        // JavaScript to trigger slide-in effect
+        document.addEventListener('DOMContentLoaded', () => {
+            const projects = document.querySelectorAll('.project');
+            projects.forEach((project, index) => {
+                setTimeout(() => {
+                    project.classList.add('show');
+                }, index * 300); // Stagger the animations
+            });
+        });
+    </script>
+
+<title>Contact and Footer Section</title>
+    <style>
+        /* Contact Me section styling */
+        .contact {
+            background-color: #f9f9f9; /* Light Gray Background */
+            color: #333; /* Dark Gray Text */
+            padding: 40px 20px;
+            text-align: center;
+            margin-bottom: 60px; /* Space below contact section to prevent overlap */
+        }
+
+        .contact .title {
+            font-size: 28px;
+            font-weight: bold;
+            color: #4a4a4a; /* Gray Color for Title */
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            margin: 10px 0;
+            font-size: 16px; /* Adjusted Font Size */
+        }
+
+        .contact-info a {
+            color: #007bff; /* Blue Color for Links */
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer styling */
+        footer {
+            background-color: #333; /* Dark Background for Footer */
+            color: #fff; /* White Text */
+            padding: 10px 20px;
+            text-align: center;
+            position: fixed; /* Fixed footer at the bottom of the page */
+            bottom: 0;
+            width: 100%;
+            box-sizing: border-box; /* Ensures padding is included in width calculation */
+        }
+
+        footer .text span {
+            font-size: 14px;
+        }
+
+        footer .text a {
+            color: #fff; /* White Links */
+            text-decoration: none;
+        }
+
+        footer .text a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Contact Me section Start -->
+    <section class="contact" id="contact">
+        <div class="content">
+            <div class="title"><span>Contact Me</span></div>
+            <div class="contact-info">
+                <p>Email: <a href="mailto:ananyaghorpade22@gmail.com">ananyaghorpade22@gmail.com</a></p>
+                <p>Phone: <a href="tel:+7038095796">+7038095796</a></p>
+                <p>LinkedIn: <a href="https://www.linkedin.com/in/ananya-ghorpade-856338258?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">LinkedIn Profile</a></p>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Me section End -->
+
+    <!-- Footer Section Start -->
+    <footer>
+        <div class="text">
+            <span>Created By <a href="#">Ananya Ghorpade</a> | &#169; 2024 All Rights Reserved</span>
+        </div>
+    </footer>
+
+    <script>
+      // Smooth Scrolling Functionality
+      document.addEventListener('DOMContentLoaded', () => {
+          const links = document.querySelectorAll('nav .menu a[href^="#"]');
+          
+          links.forEach(link => {
+              link.addEventListener('click', function(e) {
+                  e.preventDefault();
+                  
+                  const target = document.querySelector(this.getAttribute('href'));
+                  
+                  window.scrollTo({
+                      top: target.offsetTop,
+                      behavior: 'smooth'
+                  });
+              });
+          });
+      });
+
+      // Handle Animated Cat Visibility on Scroll
+      const catElement = document.getElementById('animated-cat');
+      let lastScrollTop = 0;
+      window.addEventListener('scroll', () => {
+          const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+          if (currentScroll > lastScrollTop) {
+              // Scrolling down
+              catElement.classList.add('hidden');
+          } else {
+              // Scrolling up
+              catElement.classList.remove('hidden');
+          }
+          lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+      });
+  </script>
+</body>
+</head>
+</html>
+    
